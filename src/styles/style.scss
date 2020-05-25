@@ -1,0 +1,16 @@
+@import 'reset';
+
+body {
+  background: goldenrod;
+}
+
+.container {
+  height: 40vh;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
