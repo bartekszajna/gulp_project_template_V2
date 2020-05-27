@@ -59,12 +59,16 @@ exports.default = function () {
     },
   });
 
-  gulp.watch('./src/styles/**/*.scss').on('change', styles);
   gulp
-    .watch('./src/scripts/*.js')
+    .watch('./src/styles/**/*.scss', { usePolling: true })
+    .on('change', styles);
+  gulp
+    .watch('./src/scripts/*.js', { usePolling: true })
     .on('change', gulp.series(scripts, browserSync.reload));
-  gulp.watch('./dist/images').on('change', images);
-  gulp.watch('./dist/*.html').on('change', browserSync.reload);
+  gulp.watch('./dist/images', { usePolling: true }).on('change', images);
+  gulp
+    .watch('./dist/*.html', { usePolling: true })
+    .on('change', browserSync.reload);
 
   console.log(color('Happy coding mate! :)', 'CYAN'));
 };
